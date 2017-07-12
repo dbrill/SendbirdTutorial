@@ -26,6 +26,7 @@ export default class Login extends Component {
   componentWillMount(){
     var channelHandler = new this.props.navigation.state.params.sb.ChannelHandler();
     channelHandler.onMessageReceived = (message) => {
+      console.log("***MESSAGE HANDLED***")
       this.setState({messageList: this.state.messageList.concat([message])});
      }; // Received a chat message.
 
@@ -54,10 +55,9 @@ export default class Login extends Component {
   }
 
   render() {
-    console.log(this.state.messageList)
-  var list = this.state.messageList.map((item, index) => {
-    console.log(item.userID)
-    console.log(item._sender.userId)
+    var list = this.state.messageList.map((item, index) => {
+    //console.log(item.userID)
+  //  console.log(item._sender.userId)
     return (
       <View
         style={styles.messageContainer}
